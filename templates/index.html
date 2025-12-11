@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %}
+<section class="panel">
+  <h1>IT-4320 Trip Reservation System</h1>
+  <p class="intro">
+    Choose whether to make a reservation or log in as administrator.
+  </p>
+
+  {% if message %}
+  <div class="banner error">{{ message }}</div>
+  {% endif %}
+
+  <form method="POST" class="menu-form">
+    <label>Choose Menu Option:</label>
+    <select name="menu_option" required>
+      <option value="">Choose an Option</option>
+      <option value="reserve">Make a Reservation</option>
+      <option value="admin">Admin Login</option>
+    </select>
+    <button class="btn" type="submit">Submit</button>
+  </form>
+</section>
+{% endblock %}

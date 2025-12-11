@@ -1,0 +1,9 @@
+<div class="chart-legend">X = Reserved Seat : O = Available Seat</div>
+<div class="chart-box">
+  {% for row in chart %}
+  <div class="chart-row">
+    [ {% for seat in row.seats %} '{% if seat.taken %}X{% else %}O{% endif %}'{%
+    if not loop.last %}, {% endif %} {% endfor %} ]
+  </div>
+  {% endfor %}
+</div>

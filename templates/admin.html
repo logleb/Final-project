@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block content %} {% if login %}
+<section class="panel">
+  <h1>Administrator Login</h1>
+  {% if error %}
+  <div class="banner error">{{ error }}</div>
+  {% endif %}
+  <form method="POST" class="simple-form">
+    <label>Username</label>
+    <input name="username" required />
+    <label>Password</label>
+    <input name="password" type="password" required />
+    <button class="btn" type="submit">Login</button>
+  </form>
+</section>
+{% else %}
+<section class="panel">
+  <div class="panel-head">
+    <div>
+      <h1>Admin Dashboard</h1>
+      <p>Total sales: ${{ sales }}</p>
+    </div>
+  </div>
+  {% if message %}
+  <div class="banner success">{{ message }}</div>
+  {% endif %}
+</section>
+
+<section class="panel">
+  <h2>Seating Chart</h2>
+  {% include "partials/chart.html" %}
+</section>
+
+<section class="panel">
+  <h2>Reservations</h2>
+  {% if reservations %}
+  <div class="table">
+    <div class="table-row head">
+      <div>Name</div>
+      <div>Seat</div>
+      <div>Code</div>
+      <div>Action</div>
+    </div>
+    {% for res in reservations %}
+    <div class="table-row">
+      <div>{{ res.passengerName }}</div>
+      <div>{{ res.seatRow + 1 }}{{ ["A","B","C","D"][res.seatColumn] }}</div>
+      <div>{{ res.eTicketNumber }}</div>
+      <div>
+        <form method="POST">
+          <input type="hidden" name="action" value="delete" />
+          <input type="hidden" name="reservation_id" value="{{ res.id }}" />
+          {% if admin_creds %}
+          <input
+            type="hidden"
+            name="username"
+            value="{{ admin_creds.username }}"
+          />
+          <input
+            type="hidden"
+            name="password"
+            value="{{ admin_creds.password }}"
+          />
+          {% endif %}
+          <button class="btn danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No reservations yet.</p>
+  {% endif %}
+</section>
+{% endif %} {% endblock %}

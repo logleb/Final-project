@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef1f8;
+  color: #333;
+}
+
+.site-header {
+  background: #f4f4fa;
+  border-bottom: 1px solid #bbb;
+  padding: 10px 20px;
+}
+
+.site-header nav a {
+  color: #c04f64;
+  text-decoration: none;
+  font-size: 32px;
+  margin-right: 24px;
+  font-weight: 600;
+}
+
+.content {
+  max-width: 960px;
+  margin: 20px auto 60px;
+  padding: 0 16px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #999;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.panel h1,
+.panel h2 {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.panel .sub {
+  margin-top: -4px;
+  font-size: 18px;
+}
+
+.intro {
+  text-align: center;
+}
+
+.menu-form {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 320px;
+}
+
+.simple-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 6px;
+  border: 1px solid #999;
+  width: 100%;
+}
+
+.btn {
+  background: #c04f64;
+  color: white;
+  border: 1px solid #9c3f50;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.btn.ghost {
+  background: white;
+  color: #c04f64;
+}
+
+.btn.danger {
+  background: #b03535;
+  border-color: #8a2a2a;
+}
+
+.flash {
+  background: #fff6c8;
+  border: 1px solid #d8c26d;
+  padding: 8px;
+  margin-bottom: 14px;
+}
+
+.banner {
+  padding: 10px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+}
+
+.banner.error {
+  background: #ffecec;
+  border-color: #d28f8f;
+}
+
+.banner.success {
+  background: #e9ffec;
+  border-color: #86c18f;
+}
+
+.ticket {
+  border: 1px dashed #c04f64;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.chart-legend {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.chart-box {
+  background: #dadde3;
+  padding: 12px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+.chart-row {
+  margin: 2px 0;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #999;
+  border-collapse: collapse;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+.table-row.head {
+  background: #f4f4fa;
+  font-weight: bold;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

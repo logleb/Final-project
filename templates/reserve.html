@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+<section class="panel">
+  <h1>Reserve Your Seat</h1>
+  <h2 class="sub">Seating Chart</h2>
+  {% include "partials/chart.html" %} {% if error %}
+  <div class="banner error">{{ error }}</div>
+  {% endif %} {% if success %}
+  <div class="banner success">{{ success }}</div>
+  {% endif %} {% if ticket_code %}
+  <div class="ticket">
+    <div>your reservation code:</div>
+    <strong>{{ ticket_code }}</strong>
+  </div>
+  {% endif %}
+
+  <form method="POST" class="simple-form">
+    <label>First Name</label>
+    <input name="first_name" required />
+
+    <label>Last Name</label>
+    <input name="last_name" required />
+
+    <label>Choose a Row:</label>
+    <select name="seat_row" required>
+      <option value="">Choose a Row</option>
+      {% for i in range(1, 13) %}
+      <option value="{{ i }}">{{ i }}</option>
+      {% endfor %}
+    </select>
+
+    <label>Choose a Seat:</label>
+    <select name="seat_col" required>
+      <option value="">Choose a Seat</option>
+      {% for i in range(1, 5) %}
+      <option value="{{ i }}">{{ ["A","B","C","D"][i-1] }}</option>
+      {% endfor %}
+    </select>
+
+    <button class="btn" type="submit">Submit</button>
+  </form>
+</section>
+{% endblock %}
